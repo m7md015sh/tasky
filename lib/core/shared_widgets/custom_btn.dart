@@ -16,26 +16,23 @@ class CustomBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppPadding.p22.w),
-        child: Container(
-          height: 49.h,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: ColorManager.primaryColor,
-            borderRadius: BorderRadius.all(Radius.circular(AppRadius.r12.r))
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal:AppPadding.p8.w),
-                child: Center(child: Text(title,textAlign: TextAlign.center,style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s19.sp),)),
-              ),
-              haveIcon ?  SvgPicture.asset(IconAssets.arrowLeftIcon,color: ColorManager.white,) :const SizedBox()
+      child: Container(
+        height: 49.h,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: ColorManager.primaryColor,
+          borderRadius: BorderRadius.all(Radius.circular(AppRadius.r12.r))
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal:AppPadding.p8.w),
+              child: Center(child: Text(title,textAlign: TextAlign.center,style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s19.sp),)),
+            ),
+            haveIcon ?  SvgPicture.asset(IconAssets.arrowLeftIcon,color: ColorManager.white,) :const SizedBox()
 
-            ],
-          ),
+          ],
         ),
       ),
     );

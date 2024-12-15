@@ -38,6 +38,7 @@ dependencies:
   flutter_native_splash: ^2.4.3
   flutter_svg: ^2.0.16
   flutter_screenutil: ^5.9.3
+  intl_phone_field: ^3.2.0
 
 dev_dependencies:
   flutter_test:
