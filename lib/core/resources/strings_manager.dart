@@ -1,6 +1,6 @@
 class AppStrings {
   //Auth //onBoarding
-  static const onBoardingTitle = "Task Management &To-Do List";
+  static const onBoardingTitle = "Task Management & \n To-Do List";
   static const onBoardingSubTitle = "This productive tool is designed to help you better manage your task project-wise conveniently!";
   static const onBoardingBtnText = "Let’s Start";
   //Login
