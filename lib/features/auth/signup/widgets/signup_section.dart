@@ -66,7 +66,7 @@ class SignupSection extends StatelessWidget {
                 actionText: AppStrings.loginBtn,
                 onTap: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
+                      .pushReplacement(MaterialPageRoute(builder: (context) {
                     return const LoginScreen();
                   }));
                 },

@@ -6,6 +6,8 @@ class ColorManager {
   static const Color darkGrey =  Color(0xff525252);
   static const Color grey =  Color(0xff737477);
   static const Color lightGrey =  Color(0xff7F7F7F);
+  static const Color taskProcessBackground =  Color(0xffF0ECFF);
+  static const Color taskProcessTxt =  Color(0xff7C7C80);
   static const Color lighterGray = Color(0xFFEDEDED);
   static  Color lighterMoreGray = Colors.grey.shade300;
 

@@ -23,8 +23,9 @@ class AppStrings {
   static const senior = "Senior";
 
   //Home
+  static const logoTxt = "Logo";
   static const myTasks = "My Tasks";
-  static const all = "My Tasks";
+  static const all = "All";
   static const inProgress = "In Progress";
   static const waiting = "Waiting";
   static const finished = "Finished";

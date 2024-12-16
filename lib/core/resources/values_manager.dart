@@ -52,4 +52,5 @@ class AppSize {
 }
 class AppRadius {
   static const double r12 = 12;
+  static const double r24 = 24;
 }

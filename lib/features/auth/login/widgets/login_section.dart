@@ -9,6 +9,7 @@ import 'package:tasky/core/shared_widgets/custom_btn.dart';
 import 'package:tasky/core/shared_widgets/custom_text_field.dart';
 import 'package:tasky/core/shared_widgets/info_and_text_btn.dart';
 import 'package:tasky/features/auth/signup/signup_screen.dart';
+import 'package:tasky/features/home/home_screen.dart';
 
 class LoginSection extends StatelessWidget {
   const LoginSection({super.key});
@@ -37,12 +38,16 @@ class LoginSection extends StatelessWidget {
           SizedBox(
             height:AppSize.s24.h ,
           ),
-          const CustomBtn(title: AppStrings.loginBtn),
+           CustomBtn(title: AppStrings.loginBtn,onTap: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+              return const HomeScreen();
+            }));
+          },),
           SizedBox(
             height:AppSize.s24.h ,
           ),
           InfoAndTextBtn(message: AppStrings.doNotHaveAccount,actionText: AppStrings.signupBtn, onTap: () {
-             Navigator.of(context).push(MaterialPageRoute(builder: (context){
+             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
                return const SignupScreen();
              }));
           },)

@@ -11,6 +11,8 @@ class ImageAssets {
 
 class IconAssets {
   static const String arrowLeftIcon = "$iconPath/arrow_left.svg";
+  static const String personIcon = "$iconPath/person.svg";
+  static const String logoutIcon = "$iconPath/logout.svg";
 
 }
 class JsonAssets {
