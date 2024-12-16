@@ -11,32 +11,41 @@ class ProcessContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return processId==0? Container(
-      padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w,vertical:AppPadding.p4.h ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(AppRadius.r5.r)),
-          color:ColorManager.taskItemWaitingBackground
-      ),
-      child: Text(AppStrings.waiting,style: getRegularStyle(color: ColorManager.taskItemWaitingText),),
-    ): processId==1? Container(
-      padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w,vertical:AppPadding.p4.h ),
-
-      decoration: BoxDecoration(
-
+    return processId==0? FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w,vertical:AppPadding.p4.h ),
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(AppRadius.r5.r)),
-          color:ColorManager.taskItemInProcessBackground
+            color:ColorManager.taskItemWaitingBackground
+        ),
+        child: Text(AppStrings.waiting,style: getRegularStyle(color: ColorManager.taskItemWaitingText),),
       ),
-      child: Text(AppStrings.inProgress,style: getRegularStyle(color: ColorManager.primaryColor),),
+    ): processId==1? FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w,vertical:AppPadding.p4.h ),
 
-    ): Container(
-      padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w,vertical:AppPadding.p4.h ),
+        decoration: BoxDecoration(
 
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(AppRadius.r5.r)),
-          color:ColorManager.taskItemFinishedBackground
+            borderRadius: BorderRadius.all(Radius.circular(AppRadius.r5.r)),
+            color:ColorManager.taskItemInProcessBackground
+        ),
+        child: Text(AppStrings.inProgress,style: getRegularStyle(color: ColorManager.primaryColor),),
+
       ),
-      child: Text(AppStrings.finished,style: getRegularStyle(color: ColorManager.taskItemFinishedText),),
+    ): FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w,vertical:AppPadding.p4.h ),
 
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(AppRadius.r5.r)),
+            color:ColorManager.taskItemFinishedBackground
+        ),
+        child: Text(AppStrings.finished,style: getRegularStyle(color: ColorManager.taskItemFinishedText),),
+
+      ),
     );
   }
 }

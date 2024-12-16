@@ -5,8 +5,8 @@ class ListViewTask extends StatelessWidget {
    ListViewTask({super.key, required this.processId});
   final int processId;
   final tasks = List.generate(
-    10, // عدد المهام
-        (index) => {'id': index, 'processId': index % 3}, // بيانات تجريبية
+    10,
+        (index) => {'id': index, 'processId': index % 3},
   );
   @override
   Widget build(BuildContext context) {

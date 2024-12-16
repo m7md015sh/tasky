@@ -46,7 +46,6 @@ class CustomTaskItem extends StatelessWidget {
                 Row(
                 //  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // النص الرئيسي
                     Expanded(
 
                       child: Text(
@@ -60,14 +59,11 @@ class CustomTaskItem extends StatelessWidget {
                       ),
                     ),
 
-                    Spacer(),
+                    Spacer(flex: 2,),
 
                     // حالة العملية
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Flexible(
-                        child: ProcessContainer(processId: processId),
-                      ),
+                    Flexible(
+                      child: ProcessContainer(processId: processId),
                     ),
                   ],
                 ),
@@ -85,10 +81,8 @@ class CustomTaskItem extends StatelessWidget {
                 ),
                 SizedBox(height: AppSize.s8.h),
 
-                // الصف الأخير: أيقونات والتاريخ
                 Row(
                   children: [
-                    // أيقونة ونوع العملية
                     Flexible(
                       flex: 3,
                       child: IconAndProcessType(processId: processId),
@@ -96,7 +90,6 @@ class CustomTaskItem extends StatelessWidget {
 
                     const Spacer(),
 
-                    // التاريخ
                     Flexible(
                       flex: 2,
                       child: FittedBox(
@@ -114,13 +107,10 @@ class CustomTaskItem extends StatelessWidget {
             ),
           ),
 
-          Align(
-            alignment: Alignment.topCenter,
-            child: Flexible(
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.more_vert),
-              ),
+          Flexible(
+            child: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.more_vert),
             ),
           ),
         ],

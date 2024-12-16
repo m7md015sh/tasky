@@ -29,8 +29,12 @@ class AppStrings {
   static const inProgress = "In Progress";
   static const waiting = "Waiting";
   static const finished = "Finished";
+  static const low = "Low";
+  static const medium = "Medium";
+  static const height = "Height";
   static const dateExample = "30/12/2022";
-
+//add new task
+  static const addNewTask = "Add New Task";
 
 
 

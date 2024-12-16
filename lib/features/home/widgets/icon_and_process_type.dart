@@ -27,7 +27,7 @@ class IconAndProcessType extends StatelessWidget {
         ),
 
              Text(
-                AppStrings.waiting,
+                AppStrings.height,
                 style: getMediumStyle(color: ColorManager.taskItemWaitingText,fontSize: FontSize.s12.sp),
               )
 
@@ -46,7 +46,7 @@ class IconAndProcessType extends StatelessWidget {
         ),
 
         Text(
-          AppStrings.inProgress,
+          AppStrings.medium,
           style: getMediumStyle(color: ColorManager.primaryColor,fontSize: FontSize.s12.sp),
         )
 
@@ -65,7 +65,7 @@ class IconAndProcessType extends StatelessWidget {
         ),
 
         Text(
-          AppStrings.finished,
+          AppStrings.low,
           style: getMediumStyle(color:ColorManager.taskItemFinishedText ,fontSize: FontSize.s12.sp),
         )
 

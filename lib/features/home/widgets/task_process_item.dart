@@ -17,28 +17,26 @@ class TaskProcessItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Container(
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Container(
 
-          padding: EdgeInsets.symmetric(horizontal: AppPadding.p16.w, vertical: AppPadding.p16.h),
-          decoration: BoxDecoration(
-            color: isSelected ? ColorManager.primaryColor : ColorManager.taskProcessBackground,
-            borderRadius: BorderRadius.circular(AppRadius.r24.r),
-            //border: Border.all(color: ColorManager.grey),
-          ),
-          child: Center(
-            child: Text(
-              text,
-              style: isSelected? getBoldStyle(
-                color: isSelected ? ColorManager.white : ColorManager.taskProcessTxt,
-                fontSize: FontSize.s16.sp,
-              ): getMediumStyle(
-                color: isSelected ? ColorManager.white : ColorManager.taskProcessTxt,
-                fontSize: FontSize.s16.sp,
-              )
-            ),
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p16.w, vertical: AppPadding.p16.h),
+        decoration: BoxDecoration(
+          color: isSelected ? ColorManager.primaryColor : ColorManager.taskProcessBackground,
+          borderRadius: BorderRadius.circular(AppRadius.r24.r),
+          //border: Border.all(color: ColorManager.grey),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: isSelected? getBoldStyle(
+              color: isSelected ? ColorManager.white : ColorManager.taskProcessTxt,
+              fontSize: FontSize.s16.sp,
+            ): getMediumStyle(
+              color: isSelected ? ColorManager.white : ColorManager.taskProcessTxt,
+              fontSize: FontSize.s16.sp,
+            )
           ),
         ),
       ),

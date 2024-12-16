@@ -30,7 +30,7 @@ class CustomBtn extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal:AppPadding.p8.w),
               child: Center(child: Text(title,textAlign: TextAlign.center,style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s19.sp),)),
             ),
-            haveIcon ?  SvgPicture.asset(IconAssets.arrowLeftIcon,color: ColorManager.white,) :const SizedBox()
+            haveIcon ?  SvgPicture.asset(IconAssets.arrowRightIcon,color: ColorManager.white,) :const SizedBox()
 
           ],
         ),
