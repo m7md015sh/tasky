@@ -6,7 +6,11 @@ import 'package:tasky/core/resources/styles_manager.dart';
 import 'package:tasky/core/shared_widgets/custom_btn.dart';
 
 class InfoAndTextBtn extends StatelessWidget {
-  const InfoAndTextBtn({super.key, required this.message, required this.actionText, required this.onTap});
+  const InfoAndTextBtn(
+      {super.key,
+      required this.message,
+      required this.actionText,
+      required this.onTap});
   final String message;
   final String actionText;
   final VoidCallback onTap;
@@ -15,15 +19,31 @@ class InfoAndTextBtn extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          message,
-          style: getRegularStyle(color: ColorManager.grey,fontSize: FontSize.s14.sp),
+        Flexible(
+          flex: 2,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              message,
+              style: getRegularStyle(
+                  color: ColorManager.grey, fontSize: FontSize.s14.sp),
+            ),
+          ),
         ),
-        GestureDetector(
-          onTap: onTap,
-          child: Text(
-            actionText,
-            style: getBoldStyle(color: ColorManager.blue,fontSize: FontSize.s14.sp).copyWith(decoration: TextDecoration.underline),
+        Flexible(
+          flex: 1,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+
+            child: GestureDetector(
+              onTap: onTap,
+              child: Text(
+                actionText,
+                style: getBoldStyle(
+                        color: ColorManager.blue, fontSize: FontSize.s14.sp)
+                    .copyWith(decoration: TextDecoration.underline),
+              ),
+            ),
           ),
         ),
       ],

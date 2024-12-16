@@ -11,12 +11,17 @@ class AppStrings {
   static const doNotHaveAccount = "Don’t have any account? ";
   static const signupBtn = " Sign Up here";
   //Sign Up
-  static const signup = "Signup";
+  static const signup = "Sign up";
   static const name = "Name...";
   static const yearsOfExperience = "Years of experience...";
   static const chooseExperienceLevel = "Choose experience Level";
   static const address = "Address...";
   static const alreadyHaveAnyAccount = "Already have any account? ";
+  static const fresh = "Fresh Graduation";
+  static const junior = "Junior";
+  static const intermediate = "Intermediate";
+  static const senior = "Senior";
+
   //Home
   static const myTasks = "My Tasks";
   static const all = "My Tasks";

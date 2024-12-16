@@ -15,20 +15,22 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return    Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const ImageSection(),
-            const OnBoardingTitleAndSubTitleSection(),
-            Padding(
-              padding: EdgeInsets.only(top: AppPadding.p32.h,left: AppPadding.p22.w,right: AppPadding.p22.w),
-              child: CustomBtn(title: AppStrings.onBoardingBtnText,haveIcon: true,onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return const LoginScreen();
-                  }));
-              },),
-            )
-
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const ImageSection(),
+              const OnBoardingTitleAndSubTitleSection(),
+              Padding(
+                padding: EdgeInsets.only(top: AppPadding.p32.h,left: AppPadding.p22.w,right: AppPadding.p22.w),
+                child: CustomBtn(title: AppStrings.onBoardingBtnText,haveIcon: true,onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                      return const LoginScreen();
+                    }));
+                },),
+              )
+          
+            ],
+          ),
         ),
       ),
     );
