@@ -29,6 +29,7 @@ class AppStrings {
   static const inProgress = "In Progress";
   static const waiting = "Waiting";
   static const finished = "Finished";
+  static const dateExample = "30/12/2022";
 
 
 

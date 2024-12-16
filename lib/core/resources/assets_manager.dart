@@ -5,6 +5,7 @@ const String iconPath = "assets/icons";
 class ImageAssets {
   static const String appLogo = "$imagePath/logo.png";
   static const String onBoardingImg = "$imagePath/on_boarding_img.svg";
+  static const String exampleItem = "$imagePath/example_item.png";
 
 }
 
@@ -13,6 +14,7 @@ class IconAssets {
   static const String arrowLeftIcon = "$iconPath/arrow_left.svg";
   static const String personIcon = "$iconPath/person.svg";
   static const String logoutIcon = "$iconPath/logout.svg";
+  static const String flagIcon = "$iconPath/flag.svg";
 
 }
 class JsonAssets {

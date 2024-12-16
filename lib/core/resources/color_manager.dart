@@ -8,6 +8,16 @@ class ColorManager {
   static const Color lightGrey =  Color(0xff7F7F7F);
   static const Color taskProcessBackground =  Color(0xffF0ECFF);
   static const Color taskProcessTxt =  Color(0xff7C7C80);
+  static const Color taskSubTitleTxt =  Color(0xff24252c);
+
+  static const Color taskItemWaitingBackground =  Color(0xffFFE4F2);
+  static const Color taskItemWaitingText =  Color(0xffFF7D53);
+
+  static const Color taskItemInProcessBackground =  Color(0xffF0ECFF);
+
+  static const Color taskItemFinishedBackground =  Color(0xffE3F2FF);
+  static const Color taskItemFinishedText =  Color(0xff0087FF);
+
   static const Color lighterGray = Color(0xFFEDEDED);
   static  Color lighterMoreGray = Colors.grey.shade300;
 
