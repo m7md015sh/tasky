@@ -15,64 +15,58 @@ class SignupSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 300.h,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: AppPadding.p24.h),
-                child: Text(
-                  AppStrings.signup,
-                  style: getBoldStyle(
-                      color: ColorManager.black, fontSize: FontSize.s24),
-                ),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: AppPadding.p24.h),
+              child: Text(
+                AppStrings.signup,
+                style: getBoldStyle(
+                    color: ColorManager.black, fontSize: FontSize.s24),
               ),
-              const CustomTextField(hint: AppStrings.name),
-              SizedBox(height: AppSize.s8.h),
-              const CustomTextField(
-                  hint: AppStrings.phoneExample, isPhoneNumber: true),
-              SizedBox(height: AppSize.s8.h),
-              const CustomTextField(hint: AppStrings.yearsOfExperience),
-              SizedBox(height: AppSize.s8.h),
-              const CustomTextField(
-                hint: AppStrings.chooseExperienceLevel,
-                isDropdown: true,
-                dropdownItems: [
-                  AppStrings.fresh,
-                  AppStrings.junior,
-                  AppStrings.intermediate,
-                  AppStrings.senior
-                ],
-              ),
-              SizedBox(height: AppSize.s8.h),
-              const CustomTextField(hint: AppStrings.address),
-              SizedBox(height: AppSize.s8.h),
-              const CustomTextField(
-                  hint: AppStrings.password, isPassword: true),
-              SizedBox(height: AppSize.s8.h),
+            ),
+            const CustomTextField(hint: AppStrings.name),
+            SizedBox(height: AppSize.s8.h),
+            const CustomTextField(
+                hint: AppStrings.phoneExample, isPhoneNumber: true),
+            SizedBox(height: AppSize.s8.h),
+            const CustomTextField(hint: AppStrings.yearsOfExperience),
+            SizedBox(height: AppSize.s8.h),
+            const CustomTextField(
+              hint: AppStrings.chooseExperienceLevel,
+              isDropdown: true,
+              dropdownItems: [
+                AppStrings.fresh,
+                AppStrings.junior,
+                AppStrings.intermediate,
+                AppStrings.senior
+              ],
+            ),
+            SizedBox(height: AppSize.s8.h),
+            const CustomTextField(hint: AppStrings.address),
+            SizedBox(height: AppSize.s8.h),
+            const CustomTextField(
+                hint: AppStrings.password, isPassword: true),
+            SizedBox(height: AppSize.s8.h),
 
-              const CustomBtn(title: AppStrings.signup),
-              SizedBox(height: AppSize.s16.h),
+            const CustomBtn(title: AppStrings.signup),
+            SizedBox(height: AppSize.s16.h),
 
-              InfoAndTextBtn(
-                message: AppStrings.alreadyHaveAnyAccount,
-                actionText: AppStrings.loginBtn,
-                onTap: () {
-                  Navigator.of(context)
-                      .pushReplacement(MaterialPageRoute(builder: (context) {
-                    return const LoginScreen();
-                  }));
-                },
-              )
-            ],
-          ),
+            InfoAndTextBtn(
+              message: AppStrings.alreadyHaveAnyAccount,
+              actionText: AppStrings.loginBtn,
+              onTap: () {
+                Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: (context) {
+                  return const LoginScreen();
+                }));
+              },
+            )
+          ],
         ),
       ),
     );

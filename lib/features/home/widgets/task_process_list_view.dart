@@ -11,33 +11,26 @@ class TaskProcessSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 45.w,
-      child: Padding(
-        padding:  EdgeInsets.only(right: AppPadding.p16.h),
+      child:  Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p16.w),
         child: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Expanded(
-              child: TaskProcessItem(
-                text: AppStrings.all,
-                isSelected: true,
-              ),
+            TaskProcessItem(
+              text: AppStrings.all,
+              isSelected: true,
             ),
 
-            Expanded(
-              child: TaskProcessItem(
-                text: AppStrings.inProgress,
-              ),
+            TaskProcessItem(
+              text: AppStrings.inProgress,
             ),
 
-            Expanded(
-              child: TaskProcessItem(
-                text: AppStrings.waiting,
-              ),
+            TaskProcessItem(
+              text: AppStrings.waiting,
             ),
 
-            Expanded(
-              child: TaskProcessItem(
-                text: AppStrings.finished,
-              ),
+            TaskProcessItem(
+              text: AppStrings.finished,
             ),
           ],
         ),

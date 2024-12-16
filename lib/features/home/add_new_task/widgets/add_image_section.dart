@@ -21,7 +21,7 @@ class AddImageSection extends StatelessWidget {
           height: AppSize.s56.h,
           alignment: Alignment.center,
           child: const Text(
-            "هذا النص داخل إطار داشيد",
+            "Upload Image",
             textAlign: TextAlign.center,
           ),
         ),

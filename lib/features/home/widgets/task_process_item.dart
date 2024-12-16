@@ -30,7 +30,7 @@ class TaskProcessItem extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: isSelected? getBoldStyle(
+            style: isSelected? getMediumStyle(
               color: isSelected ? ColorManager.white : ColorManager.taskProcessTxt,
               fontSize: FontSize.s16.sp,
             ): getMediumStyle(
