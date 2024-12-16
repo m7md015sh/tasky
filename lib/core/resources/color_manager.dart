@@ -20,6 +20,7 @@ class ColorManager {
 
   static const Color lighterGray = Color(0xFFEDEDED);
   static  Color lighterMoreGray = Colors.grey.shade300;
+  static const Color scanFloatingBackground = Color(0xffEBE5FF);
 
   static const Color black =  Color(0xff000000);
   static const Color blackWithObesity =  Color.fromRGBO(0, 0, 0, 0.4);

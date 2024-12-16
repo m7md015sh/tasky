@@ -10,57 +10,119 @@ import 'package:tasky/features/home/widgets/icon_and_process_type.dart';
 import 'package:tasky/features/home/widgets/process_container.dart';
 
 class CustomTaskItem extends StatelessWidget {
-  const CustomTaskItem({super.key});
+  const CustomTaskItem({super.key, required this.processId});
+  final int processId;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: AppPadding.p24.w,vertical: AppPadding.p24.h ),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppPadding.p24.w, vertical: AppPadding.p16.h),
       child: Row(
-
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          // صورة العنصر
+          Flexible(
+            flex: 1,
+            child: SizedBox(
               width: 64.w,
               height: 64.h,
-              child: Image.asset(ImageAssets.exampleItem)),
-
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: AppPadding.p8.w),
-            child: SizedBox(
-              width: 219.w,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                   children: [
-                     Text('Grocery Shopping...',
-                         style:getBoldStyle(color: ColorManager.black,fontSize: FontSize.s16.sp)
-                     ),
-                    const Spacer(),
-
-                     const ProcessContainer(processId: 2),
-                   ],
-                  ),
-                  SizedBox(
-                    height: AppSize.s8.h,
-                  ),
-                  Text('This application is designed for s...',overflow: TextOverflow.ellipsis,maxLines: 1,style: getRegularStyle(color: ColorManager.taskSubTitleTxt,fontSize: FontSize.s14.sp),),
-                  SizedBox(
-                    height: AppSize.s8.h,
-                  ),
-                  Row(
-                    children: [
-                      const IconAndProcessType(processId:2,),
-                      const Spacer(),
-                      Text(AppStrings.dateExample,style: getRegularStyle(color: ColorManager.grey,fontSize: FontSize.s12.sp),)
-                    ],
-                  )
-
-                ],
+              child: Image.asset(
+                ImageAssets.exampleItem,
+                fit: BoxFit.cover,
               ),
             ),
           ),
-          Expanded(child: IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert)))
+
+          SizedBox(width: AppPadding.p16.w),
+
+          // التفاصيل
+          Flexible(
+            flex: 6,
+            child: Column(
+
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                //  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // النص الرئيسي
+                    Expanded(
+
+                      child: Text(
+                        'Grocery Shopping...',
+                        textAlign: TextAlign.start,
+                        style: getBoldStyle(
+                            color: ColorManager.black,
+                            fontSize: FontSize.s16.sp),
+                        maxLines: 1,
+                        //overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+
+                    Spacer(),
+
+                    // حالة العملية
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Flexible(
+                        child: ProcessContainer(processId: processId),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: AppSize.s8.h),
+
+                // وصف العملية
+                Text(
+                  'This application is designed for s...',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: getRegularStyle(
+                    color: ColorManager.taskSubTitleTxt,
+                    fontSize: FontSize.s14.sp,
+                  ),
+                ),
+                SizedBox(height: AppSize.s8.h),
+
+                // الصف الأخير: أيقونات والتاريخ
+                Row(
+                  children: [
+                    // أيقونة ونوع العملية
+                    Flexible(
+                      flex: 3,
+                      child: IconAndProcessType(processId: processId),
+                    ),
+
+                    const Spacer(),
+
+                    // التاريخ
+                    Flexible(
+                      flex: 2,
+                      child: FittedBox(
+                        child: Text(
+                          AppStrings.dateExample,
+                          style: getRegularStyle(
+                              color: ColorManager.grey,
+                              fontSize: FontSize.s12.sp),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+
+          Align(
+            alignment: Alignment.topCenter,
+            child: Flexible(
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert),
+              ),
+            ),
+          ),
         ],
       ),
     );

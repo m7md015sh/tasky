@@ -26,7 +26,7 @@ class ProcessContainer extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(AppRadius.r5.r)),
           color:ColorManager.taskItemInProcessBackground
       ),
-      child: Text(AppStrings.waiting,style: getRegularStyle(color: ColorManager.primaryColor),),
+      child: Text(AppStrings.inProgress,style: getRegularStyle(color: ColorManager.primaryColor),),
 
     ): Container(
       padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w,vertical:AppPadding.p4.h ),
@@ -35,7 +35,7 @@ class ProcessContainer extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(AppRadius.r5.r)),
           color:ColorManager.taskItemFinishedBackground
       ),
-      child: Text(AppStrings.waiting,style: getRegularStyle(color: ColorManager.taskItemFinishedText),),
+      child: Text(AppStrings.finished,style: getRegularStyle(color: ColorManager.taskItemFinishedText),),
 
     );
   }
