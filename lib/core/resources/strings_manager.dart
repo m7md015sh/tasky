@@ -35,6 +35,15 @@ class AppStrings {
   static const dateExample = "30/12/2022";
 //add new task
   static const addNewTask = "Add New Task";
+  static const addImg = "Add Img";
+  static const taskTitle = "Task Title";
+  static const taskHint = "Enter title here...";
+  static const taskDescription = "Task Description";
+  static const enterDescriptionHere = "Enter description here...";
+  static const mediumPriority = "Medium Priority";
+  static const priority = "Priority";
+  static const dueDate = "Due date";
+  static const addTask = "Add task";
 
 
 

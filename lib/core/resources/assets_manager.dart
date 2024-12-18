@@ -17,6 +17,8 @@ class IconAssets {
   static const String logoutIcon = "$iconPath/logout.svg";
   static const String flagIcon = "$iconPath/flag.svg";
   static const String scanIcon = "$iconPath/scan_icon.svg";
+  static const String uploadImgIcon = "$iconPath/img.svg";
+  static const String arrowDownIcon = "$iconPath/arrow_down.svg";
 
 }
 class JsonAssets {

@@ -13,6 +13,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
   final List<String>? dropdownItems;
   final ValueChanged<String?>? onDropdownChanged;
+  final int? maxLines;
 
   const CustomTextField({
     super.key,
@@ -22,7 +23,7 @@ class CustomTextField extends StatefulWidget {
     this.isDropdown = false,
     this.controller,
     this.dropdownItems,
-    this.onDropdownChanged,
+    this.onDropdownChanged, this.maxLines=1,
   });
 
   @override
@@ -90,6 +91,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     // Password or normal text logic
     return TextFormField(
       controller: widget.controller,
+      maxLines: widget.maxLines,
       obscureText: widget.isPassword ? _isSecure : false,
       decoration: InputDecoration(
         hintText: widget.hint,
