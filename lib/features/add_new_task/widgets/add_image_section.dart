@@ -13,18 +13,25 @@ class AddImageSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppPadding.p16.w,vertical: AppPadding.p32),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppPadding.p16.w, vertical: AppPadding.p32),
       child: DottedBorder(
         color: ColorManager.primaryColor, // frame color
         strokeWidth: AppSize.s2.sp, // Thickness frame
         borderType: BorderType.RRect, // Frame shape (rounded corners)
-        dashPattern:  [AppSize.s2.sp, AppSize.s1_5.sp], // condition style [condition width, gap]
-        radius:   Radius.circular(AppRadius.r12.r), // Radius for corners
+        dashPattern: [
+          AppSize.s2.sp,
+          AppSize.s1_5.sp
+        ], // condition style [condition width, gap]
+        radius: Radius.circular(AppRadius.r12.r), // Radius for corners
         child: Container(
           width: double.infinity,
           height: AppSize.s56.h,
           alignment: Alignment.center,
-          child: const IconAndText(title: AppStrings.addImg, assets: IconAssets.uploadImgIcon,),
+          child: const IconAndText(
+            title: AppStrings.addImg,
+            assets: IconAssets.uploadImgIcon,
+          ),
         ),
       ),
     );

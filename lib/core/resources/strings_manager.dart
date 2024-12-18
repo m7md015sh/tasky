@@ -1,5 +1,5 @@
 class AppStrings {
-  //Auth //onBoarding
+  //onBoarding
   static const onBoardingTitle = "Task Management & \n To-Do List";
   static const onBoardingSubTitle = "This productive tool is designed to help you better manage your task project-wise conveniently!";
   static const onBoardingBtnText = "Let’s Start";
@@ -10,7 +10,12 @@ class AppStrings {
   static const password = "Password...";
   static const loginBtn = "Sign In";
   static const doNotHaveAccount = "Don’t have any account? ";
-  static const signupBtn = " Sign Up here";
+  static const signupBtn = "Sign Up here";
+  static const phoneValidatorText = "Please enter a valid number";
+  static const passwordValidatorText = "Please enter a valid password";
+  static const phoneIsRequired = "Phone number is required";
+  static const passwordIsRequired = "Password is required";
+  static const passwordRequiredLength = "Password must be at least 6 characters";
   //Sign Up
   static const signup = "Sign up";
   static const name = "Name...";
@@ -22,7 +27,6 @@ class AppStrings {
   static const junior = "Junior";
   static const intermediate = "Intermediate";
   static const senior = "Senior";
-
   //Home
   static const logoTxt = "Logo";
   static const myTasks = "My Tasks";
@@ -45,9 +49,4 @@ class AppStrings {
   static const priority = "Priority";
   static const dueDate = "Due date";
   static const addTask = "Add task";
-
-
-
-
-
 }

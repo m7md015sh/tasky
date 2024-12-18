@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tasky/core/resources/color_manager.dart';
 
@@ -24,8 +23,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
     if (picked != null) {
       setState(() {
         selectedDate = picked;
-        _controller.text =
-        "${picked.day}/${picked.month}/${picked.year}";
+        _controller.text = "${picked.day}/${picked.month}/${picked.year}";
       });
     }
   }
@@ -51,7 +49,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
             borderSide: const BorderSide(color: Colors.grey),
           ),
           focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: ColorManager.grey),
+            borderSide: const BorderSide(color: ColorManager.grey),
             borderRadius: BorderRadius.circular(10.0),
           ),
         ),

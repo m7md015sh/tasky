@@ -20,15 +20,19 @@ class AddNewTaskAppbar extends StatelessWidget {
             Navigator.pop(context);
           },
           child: Padding(
-            padding:   EdgeInsets.symmetric(horizontal: AppPadding.p16.w,vertical:AppPadding.p16.h ),
-            child: SvgPicture.asset(IconAssets.arrowLeftIcon,color: ColorManager.black,),
+            padding: EdgeInsets.symmetric(
+                horizontal: AppPadding.p16.w, vertical: AppPadding.p16.h),
+            child: SvgPicture.asset(
+              IconAssets.arrowLeftIcon,
+              color: ColorManager.black,
+            ),
           ),
         ),
-
-        Text(AppStrings.addNewTask,
-          style: getBoldStyle(color: ColorManager.black,fontSize: FontSize.s16.sp),
+        Text(
+          AppStrings.addNewTask,
+          style: getBoldStyle(
+              color: ColorManager.black, fontSize: FontSize.s16.sp),
         )
-
       ],
     );
   }

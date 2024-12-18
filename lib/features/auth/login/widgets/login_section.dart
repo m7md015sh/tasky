@@ -30,7 +30,8 @@ class LoginSection extends StatelessWidget {
               padding: EdgeInsets.only(bottom: AppPadding.p24.h),
               child: Text(
                 AppStrings.login,
-                style: getBoldStyle(color: ColorManager.black, fontSize: FontSize.s24),
+                style: getBoldStyle(
+                    color: ColorManager.black, fontSize: FontSize.s24),
               ),
             ),
             CustomTextField(
@@ -40,7 +41,9 @@ class LoginSection extends StatelessWidget {
                 context.read<LoginCubit>().phoneNumber = value!;
               },
               validator: (v) {
-                return v?.isEmpty ?? true ? 'Please enter a valid number' : null;
+                return v?.isEmpty ?? true
+                    ? AppStrings.phoneValidatorText
+                    : null;
               },
             ),
             SizedBox(height: AppSize.s8.h),
@@ -51,14 +54,21 @@ class LoginSection extends StatelessWidget {
                 context.read<LoginCubit>().password = value ?? '';
               },
               validator: (v) {
-                return v?.isEmpty ?? true ? 'Please enter a valid password' : null;
+                return v?.isEmpty ?? true
+                    ? AppStrings.phoneValidatorText
+                    : null;
               },
             ),
             SizedBox(height: AppSize.s24.h),
             CustomBtn(
               title: AppStrings.loginBtn,
               onTap: () {
-                if (context.read<LoginCubit>().formKey.currentState?.validate() ?? false) {
+                if (context
+                        .read<LoginCubit>()
+                        .formKey
+                        .currentState
+                        ?.validate() ??
+                    false) {
                   context.read<LoginCubit>().formKey.currentState?.save();
                   context.read<LoginCubit>().validateAndLogin();
                 }
@@ -69,7 +79,8 @@ class LoginSection extends StatelessWidget {
               message: AppStrings.doNotHaveAccount,
               actionText: AppStrings.signupBtn,
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: (context) {
                   return const SignupScreen();
                 }));
               },
@@ -81,7 +92,8 @@ class LoginSection extends StatelessWidget {
                     MaterialPageRoute(builder: (_) => const HomeScreen()),
                   );
                 } else if (state is LoginInvalid) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error)));
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(state.error)));
                 }
               },
               child: const SizedBox.shrink(),

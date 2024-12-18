@@ -7,7 +7,6 @@ import 'package:tasky/core/resources/styles_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
 import 'package:tasky/core/shared_widgets/custom_btn.dart';
 
-
 import 'widgets/add_image_section.dart';
 import 'widgets/add_new_task_appbar.dart';
 import 'widgets/date_picker_field.dart';

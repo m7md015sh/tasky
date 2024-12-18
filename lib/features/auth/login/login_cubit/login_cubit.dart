@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_field/phone_number.dart';
-
+import 'package:tasky/core/resources/strings_manager.dart';
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -24,13 +24,13 @@ class LoginCubit extends Cubit<LoginState> {
 
   String? _validateFields(PhoneNumber phoneNumber, String password) {
     if (phoneNumber.toString().isEmpty) {
-      return "Phone number is required";
+      return AppStrings.phoneIsRequired;
     }
 
     if (password.isEmpty) {
-      return "Password is required";
+      return AppStrings.passwordIsRequired;
     } else if (password.length < 6) {
-      return "Password must be at least 6 characters";
+      return AppStrings.passwordRequiredLength;
     }
 
     return null;

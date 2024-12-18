@@ -15,14 +15,20 @@ class IconAndText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: AppPadding.p4.w),
-            child: SvgPicture.asset(assets,),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w),
+          child: SvgPicture.asset(
+            assets,
           ),
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: AppPadding.p4.w),
-            child: Text(title,style: getMediumStyle(color: ColorManager.primaryColor,fontSize: FontSize.s19.sp),),
-          )
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppPadding.p4.w),
+          child: Text(
+            title,
+            style: getMediumStyle(
+                color: ColorManager.primaryColor, fontSize: FontSize.s19.sp),
+          ),
+        )
       ],
     );
   }

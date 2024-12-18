@@ -7,42 +7,58 @@ import 'package:tasky/core/resources/values_manager.dart';
 
 class PriorityDropdown extends StatefulWidget {
   final ValueChanged<String>? onPriorityChanged;
-  const PriorityDropdown({super.key, this.onPriorityChanged,});
+  const PriorityDropdown({
+    super.key,
+    this.onPriorityChanged,
+  });
 
   @override
   State<PriorityDropdown> createState() => _PriorityDropdownState();
 }
 
 class _PriorityDropdownState extends State<PriorityDropdown> {
-  final List<String> priorityList = ["Low Priority", "Medium Priority", "High Priority"];
+  final List<String> priorityList = [
+    "Low Priority",
+    "Medium Priority",
+    "High Priority"
+  ];
   String selectedPriority = "Medium Priority";
 
   final backgroundColor = ColorManager.taskItemInProcessBackground;
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-          constraints: BoxConstraints(minHeight: 50.h),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(10.r),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+      constraints: BoxConstraints(minHeight: 50.h),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(10.r),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SvgPicture.asset(
+            IconAssets.flagIcon,
+            height: AppSize.s24.h,
+            width: AppSize.s24.w,
           ),
-          child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                 SvgPicture.asset(IconAssets.flagIcon,height: AppSize.s24.h,width: AppSize.s24.w,),
-                  SizedBox(width: AppSize.s16.w),
+          SizedBox(width: AppSize.s16.w),
 
-                      const Spacer(),
+          const Spacer(),
 
-                  // Dropdown button
-                  DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      value: selectedPriority,
-                      icon: Flexible(child: SvgPicture.asset(IconAssets.arrowDownIcon,width: AppSize.s24.w,height:AppSize.s24.h,)),
-                      items: priorityList
-                          .map((priority) => DropdownMenuItem(
+          // Dropdown button
+          DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              value: selectedPriority,
+              icon: Flexible(
+                  child: SvgPicture.asset(
+                IconAssets.arrowDownIcon,
+                width: AppSize.s24.w,
+                height: AppSize.s24.h,
+              )),
+              items: priorityList
+                  .map((priority) => DropdownMenuItem(
                         value: priority,
                         child: Padding(
                           padding: EdgeInsets.only(right: AppPadding.p140.w),
@@ -53,21 +69,19 @@ class _PriorityDropdownState extends State<PriorityDropdown> {
                               )),
                         ),
                       ))
-                          .toList(),
-                      onChanged: (newValue) {
-                        setState(() {
-                          selectedPriority = newValue!;
-                        });
-                        if (widget.onPriorityChanged != null) {
-                          widget.onPriorityChanged!(selectedPriority);
-                        }
-                      },
-                    ),
-                  ),
-                ],
-              ),
-
-        );
-
+                  .toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  selectedPriority = newValue!;
+                });
+                if (widget.onPriorityChanged != null) {
+                  widget.onPriorityChanged!(selectedPriority);
+                }
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
