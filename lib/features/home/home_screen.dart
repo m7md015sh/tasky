@@ -6,7 +6,7 @@ import 'package:tasky/core/resources/assets_manager.dart';
 import 'package:tasky/core/resources/color_manager.dart';
 import 'package:tasky/core/resources/strings_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
-import 'package:tasky/features/home/add_new_task/add_new_task.dart';
+import 'package:tasky/features/add_new_task/add_new_task.dart';
 import 'package:tasky/features/home/widgets/task_process_list_view.dart';
 import 'package:tasky/features/home/widgets/text_before_section.dart';
 

@@ -6,11 +6,13 @@ import 'package:tasky/core/resources/strings_manager.dart';
 import 'package:tasky/core/resources/styles_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
 import 'package:tasky/core/shared_widgets/custom_btn.dart';
-import 'package:tasky/features/home/add_new_task/widgets/add_image_section.dart';
-import 'package:tasky/features/home/add_new_task/widgets/add_new_task_appbar.dart';
-import 'package:tasky/features/home/add_new_task/widgets/date_picker_field.dart';
-import 'package:tasky/features/home/add_new_task/widgets/priority_dropdown.dart';
-import 'package:tasky/features/home/add_new_task/widgets/title_and_form.dart';
+
+
+import 'widgets/add_image_section.dart';
+import 'widgets/add_new_task_appbar.dart';
+import 'widgets/date_picker_field.dart';
+import 'widgets/priority_dropdown.dart';
+import 'widgets/title_and_form.dart';
 
 class AddNewTask extends StatelessWidget {
   const AddNewTask({super.key});
@@ -48,6 +50,9 @@ class AddNewTask extends StatelessWidget {
                       style: getRegularStyle(
                           color: ColorManager.grey, fontSize: FontSize.s12.sp),
                     ),
+                    SizedBox(
+                      height: AppSize.s4.h,
+                    ),
                     PriorityDropdown(
                       onPriorityChanged: (selected) {
                         debugPrint("Selected Priority: $selected");
@@ -67,9 +72,15 @@ class AddNewTask extends StatelessWidget {
                       style: getRegularStyle(
                           color: ColorManager.grey, fontSize: FontSize.s12.sp),
                     ),
+                    SizedBox(
+                      height: AppSize.s4.h,
+                    ),
                     const DatePickerField(),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: AppSize.s16.h,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(

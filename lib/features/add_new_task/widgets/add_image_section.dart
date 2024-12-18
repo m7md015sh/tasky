@@ -5,7 +5,7 @@ import 'package:tasky/core/resources/assets_manager.dart';
 import 'package:tasky/core/resources/color_manager.dart';
 import 'package:tasky/core/resources/strings_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
-import 'package:tasky/features/home/add_new_task/widgets/icon_and_text.dart';
+import 'package:tasky/features/add_new_task/widgets/icon_and_text.dart';
 
 class AddImageSection extends StatelessWidget {
   const AddImageSection({super.key});

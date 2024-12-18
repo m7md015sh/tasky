@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field/phone_number.dart';
 import 'package:tasky/core/resources/color_manager.dart';
 import 'package:tasky/core/resources/font_manager.dart';
+import 'package:tasky/core/resources/strings_manager.dart';
 import 'package:tasky/core/resources/styles_manager.dart';
+import 'package:tasky/core/resources/values_manager.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hint;
@@ -14,7 +17,10 @@ class CustomTextField extends StatefulWidget {
   final List<String>? dropdownItems;
   final ValueChanged<String?>? onDropdownChanged;
   final int? maxLines;
-
+  final String? Function(String?)? validator;
+  final TextEditingController? textEditingController;
+  final void Function(String?)? onSaved;
+  final void Function(PhoneNumber?)? onSavedPhone;
   const CustomTextField({
     super.key,
     required this.hint,
@@ -23,7 +29,7 @@ class CustomTextField extends StatefulWidget {
     this.isDropdown = false,
     this.controller,
     this.dropdownItems,
-    this.onDropdownChanged, this.maxLines=1,
+    this.onDropdownChanged, this.maxLines=1, this.validator,  this.textEditingController, this.onSaved, this.onSavedPhone,
   });
 
   @override
@@ -72,16 +78,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
     // Phone number logic
     if (widget.isPhoneNumber) {
       return IntlPhoneField(
+        onSaved: widget.onSavedPhone,
         decoration: InputDecoration(
           hintText: widget.hint,
           hintStyle: getRegularStyle(
               color: ColorManager.lightGrey, fontSize: FontSize.s14.sp),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(AppRadius.r12),
             borderSide: const BorderSide(),
           ),
         ),
-        initialCountryCode: 'EG',
+        initialCountryCode: AppStrings.initialCountryCode,
         onChanged: (phone) {
           debugPrint(phone.completeNumber);
         },
@@ -90,6 +97,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
     // Password or normal text logic
     return TextFormField(
+      onSaved:widget.onSaved ,
+      validator: widget.validator ,
       controller: widget.controller,
       maxLines: widget.maxLines,
       obscureText: widget.isPassword ? _isSecure : false,

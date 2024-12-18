@@ -4,6 +4,7 @@ class AppStrings {
   static const onBoardingSubTitle = "This productive tool is designed to help you better manage your task project-wise conveniently!";
   static const onBoardingBtnText = "Let’s Start";
   //Login
+  static const initialCountryCode = "EG";
   static const login = "Login";
   static const phoneExample = "123-456-7890";
   static const password = "Password...";
