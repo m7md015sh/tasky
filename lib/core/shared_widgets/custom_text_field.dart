@@ -38,13 +38,14 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool _isSecure = true;
-  String? _selectedItem;
+ late String _selectedItem;
 
   @override
   Widget build(BuildContext context) {
     // Dropdown logic
     if (widget.isDropdown && widget.dropdownItems != null) {
       return DropdownButtonFormField<String>(
+        value: _selectedItem,
         items: widget.dropdownItems!
             .map((item) => DropdownMenuItem<String>(
           value: item,
@@ -56,14 +57,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ))
             .toList(),
         onChanged: (value) {
-          setState(() {
-            _selectedItem = value;
-          });
+          if (widget.onDropdownChanged != null) {
+            widget.onDropdownChanged!(_selectedItem);
+            setState(() {
+            });
+          }
+
           if (widget.onDropdownChanged != null) {
             widget.onDropdownChanged!(value);
           }
         },
-        value: _selectedItem,
         decoration: InputDecoration(
           hintText: widget.hint,
           hintStyle: getRegularStyle(
@@ -73,6 +76,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
         ),
       );
+
     }
 
     // Phone number logic
@@ -101,6 +105,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       validator: widget.validator ,
       controller: widget.controller,
       maxLines: widget.maxLines,
+
       obscureText: widget.isPassword ? _isSecure : false,
       decoration: InputDecoration(
         hintText: widget.hint,
@@ -124,4 +129,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.isDropdown && widget.dropdownItems != null && widget.dropdownItems!.isNotEmpty) {
+      _selectedItem = widget.dropdownItems!.first; // القيمة الابتدائية تكون أول عنصر
+    }
+  }
+
 }

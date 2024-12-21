@@ -13,8 +13,12 @@ class AppStrings {
   static const signupBtn = "Sign Up here";
   static const phoneValidatorText = "Please enter a valid number";
   static const passwordValidatorText = "Please enter a valid password";
+  static const invalidYearsOfExperience = "Please enter a valid Years Of Experience";
+  static const nameIsRequired = "Name is required";
   static const phoneIsRequired = "Phone number is required";
   static const passwordIsRequired = "Password is required";
+  static const levelOfExperienceRequired = "level Of Experience is required";
+  static const addressIsRequired = "Address is required";
   static const passwordRequiredLength = "Password must be at least 6 characters";
   //Sign Up
   static const signup = "Sign up";
@@ -23,10 +27,11 @@ class AppStrings {
   static const chooseExperienceLevel = "Choose experience Level";
   static const address = "Address...";
   static const alreadyHaveAnyAccount = "Already have any account? ";
-  static const fresh = "Fresh Graduation";
-  static const junior = "Junior";
-  static const intermediate = "Intermediate";
-  static const senior = "Senior";
+  static const fresh = "fresh";
+  static const junior = "junior";
+  static const intermediate = "midLevel";
+  static const senior = "senior";
+  static const formIsInvalid = "the inputs Is Invalid";
   //Home
   static const logoTxt = "Logo";
   static const myTasks = "My Tasks";

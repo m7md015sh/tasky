@@ -48,6 +48,7 @@ class LoginSection extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.w),
         child: Form(
+
           key: context.read<LoginCubit>().formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,15 +94,20 @@ class LoginSection extends StatelessWidget {
               ),
               SizedBox(height: AppSize.s24.h),
               CustomBtn(
-                title: AppStrings.loginBtn,
+                title: AppStrings.login,
                 onTap: () {
                   final formKey = context.read<LoginCubit>().formKey;
                   if (formKey.currentState?.validate() ?? false) {
-                    formKey.currentState?.save();
-                    context.read<LoginCubit>().validateAndLogin();
+                    formKey.currentState?.save(); // حفظ جميع القيم
+                    context.read<LoginCubit>().validateAndLogin(); // بدء عملية التسجيل
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text(AppStrings.formIsInvalid)), // رسالة عامة
+                    );
                   }
                 },
               ),
+
               SizedBox(height: AppSize.s24.h),
               InfoAndTextBtn(
                 message: AppStrings.doNotHaveAccount,

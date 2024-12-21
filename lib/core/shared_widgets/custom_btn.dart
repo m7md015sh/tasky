@@ -8,7 +8,8 @@ import 'package:tasky/core/resources/styles_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
 
 class CustomBtn extends StatelessWidget {
-  const CustomBtn({super.key, required this.title, this.haveIcon=false, this.onTap});
+  const CustomBtn(
+      {super.key, required this.title, this.haveIcon = false, this.onTap});
   final String title;
   final bool haveIcon;
   final void Function()? onTap;
@@ -20,22 +21,30 @@ class CustomBtn extends StatelessWidget {
         height: 49.h,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: ColorManager.primaryColor,
-          borderRadius: BorderRadius.all(Radius.circular(AppRadius.r12.r))
-        ),
+            color: ColorManager.primaryColor,
+            borderRadius: BorderRadius.all(Radius.circular(AppRadius.r12.r))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal:AppPadding.p8.w),
-              child: Center(child: Text(title,textAlign: TextAlign.center,style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s19.sp),)),
+              padding: EdgeInsets.symmetric(horizontal: AppPadding.p8.w),
+              child: Center(
+                  child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: getBoldStyle(
+                    color: ColorManager.white, fontSize: FontSize.s19.sp),
+              )),
             ),
-            haveIcon ?  SvgPicture.asset(IconAssets.arrowRightIcon,color: ColorManager.white,) :const SizedBox()
-
+            haveIcon
+                ? SvgPicture.asset(
+                    IconAssets.arrowRightIcon,
+                    color: ColorManager.white,
+                  )
+                : const SizedBox()
           ],
         ),
       ),
     );
   }
 }
- 
