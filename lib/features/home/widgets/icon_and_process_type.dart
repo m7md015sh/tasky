@@ -9,12 +9,12 @@ import 'package:tasky/core/resources/styles_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
 
 class IconAndProcessType extends StatelessWidget {
-  const IconAndProcessType({super.key, required this.processId});
-  final int processId;
+  const IconAndProcessType({super.key, required this.priority});
+  final String priority;
 
   @override
   Widget build(BuildContext context) {
-    return processId==0? Row(
+    return priority==AppStrings.low? Row(
       children: [
         SvgPicture.asset(
           IconAssets.flagIcon,
@@ -27,13 +27,13 @@ class IconAndProcessType extends StatelessWidget {
         ),
 
              Text(
-                AppStrings.height,
+                AppStrings.low,
                 style: getMediumStyle(color: ColorManager.taskItemWaitingText,fontSize: FontSize.s12.sp),
               )
 
 
       ],
-    ):processId==1?Row(
+    ):  priority==AppStrings.medium? Row(
       children: [
         SvgPicture.asset(
           IconAssets.flagIcon,
@@ -65,7 +65,7 @@ class IconAndProcessType extends StatelessWidget {
         ),
 
         Text(
-          AppStrings.low,
+          AppStrings.height,
           style: getMediumStyle(color:ColorManager.taskItemFinishedText ,fontSize: FontSize.s12.sp),
         )
 
@@ -76,19 +76,3 @@ class IconAndProcessType extends StatelessWidget {
 }
 
 
-/*        processId == 0
-            ? Text(
-                AppStrings.waiting,
-                style: getMediumStyle(color: ColorManager.taskItemWaitingText,fontSize: FontSize.s12.sp),
-              )
-            : processId == 1
-                ? Text(
-                    AppStrings.inProgress,
-                    style: getMediumStyle(color: ColorManager.primaryColor,fontSize: FontSize.s12.sp),
-                  )
-                : Text(
-                    AppStrings.finished,
-                    style: getMediumStyle(
-                        color: ColorManager.taskItemFinishedText,fontSize: FontSize.s12.sp),
-                  )
-                  */

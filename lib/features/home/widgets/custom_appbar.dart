@@ -7,6 +7,7 @@ import 'package:tasky/core/resources/font_manager.dart';
 import 'package:tasky/core/resources/strings_manager.dart';
 import 'package:tasky/core/resources/styles_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
+import 'package:tasky/features/auth/login/login_screen.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
@@ -27,9 +28,16 @@ class CustomAppbar extends StatelessWidget {
                 padding:  EdgeInsets.only(left: AppPadding.p8.w,right: AppPadding.p16.w),
                 child: SvgPicture.asset(IconAssets.personIcon,height: AppSize.s24.h,width: AppSize.s24.w),
               ),
-              Padding(
-                padding:  EdgeInsets.only(left: AppPadding.p8.w,right: AppPadding.p16.w),
-                child: SvgPicture.asset(IconAssets.logoutIcon,height: AppSize.s24.h,width: AppSize.s24.w),
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+                    return LoginScreen();
+                  }));
+                },
+                child: Padding(
+                  padding:  EdgeInsets.only(left: AppPadding.p8.w,right: AppPadding.p16.w),
+                  child: SvgPicture.asset(IconAssets.logoutIcon,height: AppSize.s24.h,width: AppSize.s24.w),
+                ),
               ),
 
             ],

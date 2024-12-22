@@ -6,13 +6,13 @@ import 'package:tasky/core/resources/font_manager.dart';
 import 'package:tasky/core/resources/strings_manager.dart';
 import 'package:tasky/core/resources/styles_manager.dart';
 import 'package:tasky/core/resources/values_manager.dart';
+import 'package:tasky/features/home/data/model/all_tasks_model.dart';
 import 'package:tasky/features/home/widgets/icon_and_process_type.dart';
 import 'package:tasky/features/home/widgets/process_container.dart';
 
 class CustomTaskItem extends StatelessWidget {
-  const CustomTaskItem({super.key, required this.processId});
-  final int processId;
-
+  const CustomTaskItem({super.key,  this.taskModel});
+   final TaskModel? taskModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,10 +47,11 @@ class CustomTaskItem extends StatelessWidget {
                 //  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
-
+                        flex:6,
                       child: Text(
-                        'Grocery Shopping...',
+                        taskModel?.title?? 'Grocery Shopping...',
                         textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
                         style: getBoldStyle(
                             color: ColorManager.black,
                             fontSize: FontSize.s16.sp),
@@ -59,11 +60,12 @@ class CustomTaskItem extends StatelessWidget {
                       ),
                     ),
 
-                    Spacer(flex: 2,),
+                    const Spacer(flex: 1,),
 
                     // حالة العملية
-                    Flexible(
-                      child: ProcessContainer(processId: processId),
+                    const Flexible(
+                      flex: 2,
+                      child: ProcessContainer(processId: 1),
                     ),
                   ],
                 ),
@@ -71,7 +73,7 @@ class CustomTaskItem extends StatelessWidget {
 
                 // وصف العملية
                 Text(
-                  'This application is designed for s...',
+                  taskModel?.desc?? 'This application is designed for s...',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style: getRegularStyle(
@@ -83,18 +85,18 @@ class CustomTaskItem extends StatelessWidget {
 
                 Row(
                   children: [
-                    Flexible(
+                     Flexible(
                       flex: 3,
-                      child: IconAndProcessType(processId: processId),
+                      child: IconAndProcessType(priority: taskModel?.priority??''),
                     ),
 
                     const Spacer(),
 
                     Flexible(
-                      flex: 2,
+                      flex: 3,
                       child: FittedBox(
                         child: Text(
-                          AppStrings.dateExample,
+                       '${taskModel?.createdAt}',
                           style: getRegularStyle(
                               color: ColorManager.grey,
                               fontSize: FontSize.s12.sp),

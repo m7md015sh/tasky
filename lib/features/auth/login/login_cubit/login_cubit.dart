@@ -3,21 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:tasky/core/resources/strings_manager.dart';
 import 'package:tasky/core/errors/failures.dart';
+import 'package:tasky/core/services/token_storage_service.dart';
 import 'package:tasky/features/auth/data/repos/auth_repo.dart';
 import 'package:tasky/features/auth/data/models/login_model.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final AuthRepo authRepo; // تمرير الـ Repository
+  final AuthRepo authRepo;
 
-  String phoneNumber = ''; // إزالة PhoneNumber object لتبسيط العمل
+  String phoneNumber = '';
   String password = '';
   final formKey = GlobalKey<FormState>();
 
   LoginCubit(this.authRepo) : super(LoginInitial());
 
-  /// التحقق من صحة المدخلات وإجراء عملية تسجيل الدخول
   Future<void> validateAndLogin() async {
     final validationError = _validateFields(phoneNumber, password);
 
@@ -28,22 +28,27 @@ class LoginCubit extends Cubit<LoginState> {
 
     emit(LoginLoading());
 
-   // final phoneString = phoneNumber.toString(); // تحويل كائن PhoneNumber إلى نص
     final result = await authRepo.login(phoneNumber, password);
 
     result.fold(
           (failure) {
         emit(LoginInvalid(_mapFailureToMessage(failure)));
       },
-          (loginModel) {
+          (loginModel)async {
+
+            print('=========================');
+            print(loginModel.accessToken);
+            await TokenStorage.saveTokens(
+              accessToken: loginModel.accessToken,
+              refreshToken: loginModel.refreshToken,
+            );
         emit(LoginSuccess(loginModel));
-        print(phoneNumber);
+
       },
     );
   }
 
 
-  /// التحقق من صحة الحقول
   String? _validateFields(String phoneNumber, String password) {
     if (phoneNumber.toString().isEmpty) {
       return AppStrings.phoneIsRequired;
@@ -58,7 +63,6 @@ class LoginCubit extends Cubit<LoginState> {
     return null;
   }
 
-  /// تحويل الأخطاء إلى رسائل مخصصة
   String _mapFailureToMessage(Failure failure) {
     if (failure is ServerFailure) {
       return failure.error ;
